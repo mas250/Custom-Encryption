@@ -1,0 +1,45 @@
+def plaintext_xor(plaintext,key):
+	result = plaintext (xor) key
+	return result
+
+def Substitution(text):
+	s_box = [a,b,c,d]
+	#etc
+
+def Permutatution(text):
+	p_box = [a,b,c,d]
+	#etc
+
+def Mixing(text):
+	block1,block2,block3,block4 = text / into 4
+	w1 = block1 (xor) with (rotated by3) block2
+	w2 = block2 (xor) with (rotated by5)block3
+	w3 = block3 (xor) with (rotated by7)block4
+	w4 = block4 (xor) with (rotated by11)block1
+	newstate = w1+w2+w3+w4
+		
+
+
+def Encrypt(plaintext,key):
+
+
+	#Step 1
+	state1 = plaintext_xor(plaintext,key)
+
+	#Step 2
+	state2 = Substitution(state1)
+
+	#Step 3
+	state3 = Permutation(state2)
+	
+	#Step 4
+	state4 = Mixing(state3)
+
+	finalstep = state4 (xor) with round constant( yet to be determined)
+	
+	
+
+	
+	
+
+	

@@ -1,0 +1,90 @@
+RSA VARIABLE KEY
+
+p = prime number
+q = prime number
+n = p * q        # modulus
+e = exponent     # RSA exponent
+x= state value
+
+
+def plaintext_xor(plaintext,key):
+	result = plaintext (xor) key
+	return result
+
+def Substitution(text):
+	s_box = [a,b,c,d]
+	#etc
+
+RSA Inspired
+
+function Prime_Addition_Round(text, p, n):
+
+    for each value x in text:
+        x = (x + p) mod n
+
+
+
+def Permutatution(text):
+	p_box = [a,b,c,d]
+	#etc
+
+RSA Inspired
+
+function Modular_Squaring_Round(text, n):
+
+    for each value x in text:
+        x = (x * x) mod n
+
+
+
+def Mixing(text):
+	block1,block2,block3,block4 = text / into 4
+	w1 = block1 (xor) with (rotated by3) block2
+	w2 = block2 (xor) with (rotated by5)block3
+	w3 = block3 (xor) with (rotated by7)block4
+	w4 = block4 (xor) with (rotated by11)block1
+	newstate = w1+w2+w3+w4
+
+RSA Inspired
+
+function Modular_Exponentiation_Round(text, e, n):
+
+    for each value x in text:
+        x = (x ^ e) mod n
+
+ 
+
+function Final_XOR(text, round_constant):
+
+    result = text XOR round_constant
+
+    return result
+
+
+def Encrypt(plaintext, key):
+
+	# Step 1 – Initial key mixing
+	state1 = plaintext_xor(plaintext, key)
+
+	# Step 2 – Substitution layer
+	state2 = Substitution(state1)
+
+	# Step 3 – RSA Inspired: Prime Addition
+	state3 = Prime_Addition_Round(state2, p, n)
+
+	# Step 4 – Permutation layer
+	state4 = Permutation(state3)
+
+	# Step 5 – RSA Inspired: Modular Squaring
+	state5 = Modular_Squaring_Round(state4, n)
+
+	# Step 6 – Mixing layer
+	state6 = Mixing(state5)
+
+	# Step 7 – RSA Inspired: Modular Exponentiation
+	state7 = Modular_Exponentiation_Round(state6, e, n)
+
+	# Step 8 – Final XOR with round constant
+	ciphertext = Final_XOR(state7, round_constant)
+
+	return ciphertext
